@@ -1,0 +1,75 @@
+Use Case 6: Determine Car Position
+Scenario 6A: Car moves from hallway f on floor x to adjacent hallway g on floor y and stops.
+Author name: Leikai Ma
+Pre-Conditions:
+	Car is at hallway [f, b].
+	All elevator doors are closed.
+	Car is moving in hoistway.
+Scenario:
+	Drive starts to go slow
+	Car arrives at floor y and AtFloor[y, g] becomes true
+	Drive starts to go level
+	Drive starts to go stop
+
+Post-Conditions
+	Door is closed
+	Drive is stopped
+	Elevator is at floor y
+
+
+
+
+Use Case 8: Move Car to Next Floor
+
+Scenario 8A: Elevator moves from {floor f, hallway b} to {floor g, hallway c} in direction d.
+
+Note: You will want to create other scenarios that involve fast speed for your elevator, but this is a starting point.
+
+Pre-Conditions:
+
+	Elevator is at floor f, with at least one Door[b,r] open.
+	Drive is stopped.
+Scenario:
+	Door[b,r] closes
+	Drive starts to go slow in direction of d to floor g
+	Drive speeds up to fast
+	Car reaches the commit point of floor g
+	Drive slows down
+	Drive starts to go level
+	Drive starts to go stop
+
+Post-Conditions:
+	Door[b, r] is closed
+	Drive is stopped
+	Elevator is at floor g
+
+Sequence Diagram:
+
+
+
+Use Case 9: Cycle Doors
+
+Scenario 9A: Elevator stops at hallway and doors open. Dispatcher computes next desired floor just as doors open. Doors close.
+
+Note: This dispatcher is really dumb and stops at every floor, in order. It would be much better to stop only at floors with people on them or that people want to go to.
+
+Pre-Conditions:
+
+	Car is stopped.
+	AtFloor[f,b] was last received as True.
+	All doors are closed.
+Scenario:
+	Door[b, r] opens
+	Dispatcher computes the next desired floor
+	Door[b, r] closes
+
+Post-Conditions:
+	Door[b, r] is closed
+	Car is still stopped
+	Elevator is still at floor f
+
+Sequence Diagram:
+
+
+
+	
